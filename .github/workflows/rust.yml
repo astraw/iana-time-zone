@@ -29,6 +29,7 @@ jobs:
         toolchain:
           # There are no docker images for old versions.
           - stable
+          - beta
           - nightly
     runs-on: ubuntu-latest
     steps:
