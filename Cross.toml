@@ -1,0 +1,5 @@
+[build]
+# See https://github.com/strawlab/iana-time-zone/issues/80
+# and https://github.com/rust-lang/rust/pull/85806
+build-std = true
+
