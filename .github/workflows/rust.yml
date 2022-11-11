@@ -148,7 +148,7 @@ jobs:
       - run: which cross || cargo +stable install cross
       # See https://github.com/strawlab/iana-time-zone/issues/80
       # and https://github.com/rust-lang/rust/pull/85806
-      - run: echo '[build]\nbuild-std = true' > Cross.toml
+      - run: echo '[build]' > Cross.toml && echo 'build-std = true' >> Cross.toml
         if: matrix.toolchain == 'nightly'
       - run: cross build --target ${{ matrix.target }} --examples
 
