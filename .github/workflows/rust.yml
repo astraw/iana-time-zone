@@ -381,3 +381,28 @@ jobs:
           override: true
       - run: which cargo-hack || cargo +stable install cargo-hack
       - run: cargo hack check --version-range 1.36..
+
+  semver:
+    name: semver
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        id: actions-rs
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Install cargo-semver-checks
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-semver-checks
+      - name: Check semver compatibility
+        run: |
+          cargo semver-checks check-release \
+            --exclude benches \
+            --exclude examples \
+            --exclude stress-test \
+            --exclude tests-build \
+            --exclude tests-integration
