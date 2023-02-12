@@ -98,8 +98,8 @@ impl From<std::io::Error> for GetTimezoneError {
 /// See the module-level documentatation for a usage example and more details
 /// about this function.
 #[inline]
-pub fn get_timezone() -> Result<String, GetTimezoneError> {
-    platform::get_timezone_inner()
+pub fn get_timezone() -> Result<usize, GetTimezoneError> {
+    Ok(platform::get_timezone_inner()?.len())
 }
 
 #[cfg(test)]
