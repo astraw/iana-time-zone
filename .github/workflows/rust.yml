@@ -23,7 +23,6 @@ jobs:
           toolchain: stable
           override: true
       - name: Check semver
-        uses: obi1kenobi/cargo-semver-checks-action@v2
+        uses: obi1kenobi/cargo-semver-checks-action@v1
         with:
-          package: iana-time-zone
-          verbose: true
+          crate-name: iana-time-zone
