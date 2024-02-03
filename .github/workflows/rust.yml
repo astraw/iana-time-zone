@@ -45,7 +45,7 @@ jobs:
         run: cargo generate-lockfile ${{ matrix.versions }}
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo test --all-targets
+      - run: cargo test --target=all
       - run: cargo run --example stress-test
 
   build-wasm:
@@ -235,8 +235,8 @@ jobs:
         run: cargo generate-lockfile ${{ matrix.versions }}
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo check --all-targets
-      - run: cargo clippy --all-targets
+      - run: cargo check --target=all
+      - run: cargo clippy --target=all
 
   no-docker-image-check-only:
     runs-on: ubuntu-latest
@@ -326,7 +326,7 @@ jobs:
         working-directory: haiku
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo test --all-targets
+      - run: cargo test --target=all
         working-directory: haiku
 
   check-haiku:
@@ -353,9 +353,9 @@ jobs:
         working-directory: haiku
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo check --all-targets
+      - run: cargo check --target=all
         working-directory: haiku
-      - run: cargo clippy --all-targets
+      - run: cargo clippy --target=all
         working-directory: haiku
 
   check-all-versions:
