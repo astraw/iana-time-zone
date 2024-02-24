@@ -77,9 +77,7 @@ pub mod Foundation {
                 Self(self.0.clone(), ::core::marker::PhantomData::<T>)
             }
         }
-        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
-            for IIterable<T>
-        {
+        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterable<T> {
             const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(
                 <Self as ::windows_core::RuntimeType>::SIGNATURE,
             );
@@ -199,9 +197,7 @@ pub mod Foundation {
                 Self(self.0.clone(), ::core::marker::PhantomData::<T>)
             }
         }
-        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
-            for IIterator<T>
-        {
+        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterator<T> {
             const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(
                 <Self as ::windows_core::RuntimeType>::SIGNATURE,
             );
@@ -296,7 +292,7 @@ pub mod Foundation {
                 }
             }
             pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
-                let this = &::windows_core::ComInterface::cast::<IIterable<T>>(self)?;
+                let this = &::windows_core::Interface::cast::<IIterable<T>>(self)?;
                 unsafe {
                     let mut result__ = ::std::mem::zeroed();
                     (::windows_core::Interface::vtable(this).First)(
@@ -385,9 +381,7 @@ pub mod Foundation {
                 Self(self.0.clone(), ::core::marker::PhantomData::<T>)
             }
         }
-        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
-            for IVectorView<T>
-        {
+        unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IVectorView<T> {
             const IID: ::windows_core::GUID = ::windows_core::GUID::from_signature(
                 <Self as ::windows_core::RuntimeType>::SIGNATURE,
             );
@@ -519,7 +513,7 @@ pub mod Globalization {
             Self(self.0.clone())
         }
     }
-    unsafe impl ::windows_core::ComInterface for ICalendar {
+    unsafe impl ::windows_core::Interface for ICalendar {
         const IID: ::windows_core::GUID =
             ::windows_core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
     }
@@ -946,7 +940,7 @@ pub mod Globalization {
             Self(self.0.clone())
         }
     }
-    unsafe impl ::windows_core::ComInterface for ICalendarFactory {
+    unsafe impl ::windows_core::Interface for ICalendarFactory {
         const IID: ::windows_core::GUID =
             ::windows_core::GUID::from_u128(0x83f58412_e56b_4c75_a66e_0f63d57758a6);
     }
@@ -979,7 +973,7 @@ pub mod Globalization {
             Self(self.0.clone())
         }
     }
-    unsafe impl ::windows_core::ComInterface for ICalendarFactory2 {
+    unsafe impl ::windows_core::Interface for ICalendarFactory2 {
         const IID: ::windows_core::GUID =
             ::windows_core::GUID::from_u128(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
     }
@@ -1008,7 +1002,7 @@ pub mod Globalization {
             Self(self.0.clone())
         }
     }
-    unsafe impl ::windows_core::ComInterface for ITimeZoneOnCalendar {
+    unsafe impl ::windows_core::Interface for ITimeZoneOnCalendar {
         const IID: ::windows_core::GUID =
             ::windows_core::GUID::from_u128(0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
     }
@@ -2245,7 +2239,7 @@ pub mod Globalization {
             })
         }
         pub fn GetTimeZone(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-            let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
+            let this = &::windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
             unsafe {
                 let mut result__ = ::std::mem::zeroed();
                 (::windows_core::Interface::vtable(this).GetTimeZone)(
@@ -2259,7 +2253,7 @@ pub mod Globalization {
             &self,
             timezoneid: &::windows_core::HSTRING,
         ) -> ::windows_core::Result<()> {
-            let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
+            let this = &::windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
             unsafe {
                 (::windows_core::Interface::vtable(this).ChangeTimeZone)(
                     ::windows_core::Interface::as_raw(this),
@@ -2269,7 +2263,7 @@ pub mod Globalization {
             }
         }
         pub fn TimeZoneAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-            let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
+            let this = &::windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
             unsafe {
                 let mut result__ = ::std::mem::zeroed();
                 (::windows_core::Interface::vtable(this).TimeZoneAsFullString)(
@@ -2283,7 +2277,7 @@ pub mod Globalization {
             &self,
             ideallength: i32,
         ) -> ::windows_core::Result<::windows_core::HSTRING> {
-            let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
+            let this = &::windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
             unsafe {
                 let mut result__ = ::std::mem::zeroed();
                 (::windows_core::Interface::vtable(this).TimeZoneAsString)(
@@ -2336,8 +2330,8 @@ pub mod Globalization {
     unsafe impl ::windows_core::Interface for Calendar {
         type Vtable = ICalendar_Vtbl;
     }
-    unsafe impl ::windows_core::ComInterface for Calendar {
-        const IID: ::windows_core::GUID = <ICalendar as ::windows_core::ComInterface>::IID;
+    unsafe impl ::windows_core::Interface for Calendar {
+        const IID: ::windows_core::GUID = <ICalendar as ::windows_core::Interface>::IID;
     }
     impl ::windows_core::RuntimeName for Calendar {
         const NAME: &'static str = "Windows.Globalization.Calendar";
