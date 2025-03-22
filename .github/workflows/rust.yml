@@ -34,7 +34,7 @@ jobs:
         run: cargo generate-lockfile ${{ matrix.versions }}
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo test --all-targets
+      - run: cargo test --all-targets --workspace
 
   build-wasm:
     strategy:
@@ -216,9 +216,9 @@ jobs:
         run: cargo generate-lockfile ${{ matrix.versions }}
         env:
           RUSTC_BOOTSTRAP: 1
-      - run: cargo check --all-targets --workspace
+      - run: cargo check
       - run: cargo run --example stress-test
-      - run: cargo clippy --all-targets --workspace -- -D warnings
+      - run: cargo clippy -- -D warnings
 
   no-docker-image-check-only:
     runs-on: ubuntu-latest
