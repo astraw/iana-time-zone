@@ -35,7 +35,6 @@ jobs:
         env:
           RUSTC_BOOTSTRAP: 1
       - run: cargo test --all-targets
-      - run: cargo run --example stress-test
 
   build-wasm:
     strategy:
@@ -218,6 +217,7 @@ jobs:
         env:
           RUSTC_BOOTSTRAP: 1
       - run: cargo check --all-targets --workspace
+      - run: cargo run --example stress-test
       - run: cargo clippy --all-targets --workspace -- -D warnings
 
   no-docker-image-check-only:
