@@ -42,7 +42,7 @@ mod ffi_utils;
 #[cfg_attr(target_os = "windows", path = "tz_windows.rs")]
 #[cfg_attr(target_vendor = "apple", path = "tz_darwin.rs")]
 #[cfg_attr(
-    all(target_arch = "wasm32", target_os = "unknown"),
+    all(target_arch = "wasm32", target_os = "unknown", feature = "js"),
     path = "tz_wasm32_unknown.rs"
 )]
 #[cfg_attr(
